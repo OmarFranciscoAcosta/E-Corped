@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buscar Empleado</title>
+</head>
+<body>
+    <h1>Buscar Empleado</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="buscar" placeholder="Nombre del empleado">
+        <button type="submit">Buscar</button>
+    </form>
+    {% if empleado %}
+    <h2>Resultado:</h2>
+    <p>Nombre: {{ empleado.nombre }}</p>
+    <p>Apellido: {{ empleado.apellido }}</p>
+    <p>Trabajo: {{ empleado.trabajo }}</p>
+    <p>Departamento: {{ empleado.departamento }}</p>
+    <p>Situacion: {{ empleado.Situacion }}</p>
+    <p>Habilidad: {{ empleado.Habilidad }}</p>
+    <p>Email: {{ empleado.email }}</p>
+    <!-- Otros campos relevantes -->
+    {% endif %}
+</body>
+</html>
