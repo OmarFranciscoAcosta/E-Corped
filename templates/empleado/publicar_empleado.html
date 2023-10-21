@@ -1,3 +1,6 @@
+{% extends "empleado/base.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +9,18 @@
     <title>Formulario - Agregar Empleados</title>
 </head>
 <body>
-    <h1>Publicar un nuevo empleado</h1>
     <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Publicar</button>
-    </form>
-</body>
+      {% csrf_token %}
+      <div class="card mx-auto" style="max-width: 30rem;">
+          <div class="card-body">
+              <h5 class="card-title">Agregar un empleado</h5>
+              {{ form | crispy }}
+              <button class="btn btn-sm btn-primary float-end" type="submit">Agregar empleado</button>
+          </div>
+      </div>
+  </form>
+  </body>
 </html>
+{% endblock %}
+
+

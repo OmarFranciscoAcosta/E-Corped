@@ -81,57 +81,6 @@
         </nav>
       </div>
     </header>
-    
-    <!-- end header section -->
-    <!-- slider section -->
-    <section class=" slider_section position-relative">
-      <div class="container">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="row">
-                <div class="col">
-                  <div class="detail-box">
-                    <div>
-                      <h2>
-                        Bienvenido a 
-
-                      </h2>
-                      <h1>
-                        E-Corped
-                      </h1>
-                      <p>
-                        Inicie sesion para gestionar a los empleados.
-                      </p>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-    <!-- end slider section -->
-  </div>
-
-  {% block header_content %}{% endblock %}
-
-    <!-- footer section -->
-    <section class="container-fluid footer_section">
-      <p>
-        &copy; 2023 All Rights Reserved By
-        <a href="https://www.linkedin.com/in/omar-francisco-acosta">Omar Acosta</a>
-      </p>
-    </section>
-    <!-- footer section -->
-    {% block main_content %}{% endblock %}
-
-  </body>
-  </html>
+    {% block content %}{% endblock %}
+   </body>
+  <html></html>

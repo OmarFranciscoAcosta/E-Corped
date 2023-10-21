@@ -2,7 +2,15 @@ body {
   font-family: "Poppins", sans-serif;
   color: #000000;
   background-color: #ffffff;
+  margin: 0; /* Elimina el margen predeterminado del cuerpo */
+  padding: 0; /* Elimina el relleno predeterminado del cuerpo */
+  background-image: url(../images/hero-bg.jpg);
+  background-size: cover; /* Escalar la imagen para cubrir toda la pantalla */
+  background-position: center; /* Centrar la imagen */
+  background-attachment: fixed; /* Fijar el fondo para que se mantenga en su lugar al desplazarse */
+  background-repeat: no-repeat;
 }
+
 
 .layout_padding {
   padding: 75px 0;

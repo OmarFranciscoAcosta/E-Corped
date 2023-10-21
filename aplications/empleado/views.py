@@ -9,7 +9,7 @@ from .forms import EmpleadosForm
 
 #Render pagina inicio
 def home (request):
-    return render (request, 'empleado/base.html')
+    return render (request, 'empleado/home.html')
 #Publicar empleado
 def publicar_empleado(request):
     empleado_form = EmpleadosForm()
