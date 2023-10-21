@@ -25,3 +25,4 @@ urlpatterns = [
     path('buscar_empleado/', buscar_empleado, name='buscar_empleado'),
     path('empleados/', lista_empleados, name='empleados'),
 ]
+
