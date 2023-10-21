@@ -6,23 +6,49 @@
     <title>Buscar Empleado</title>
 </head>
 <body>
-    <h1>Buscar Empleado</h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <form method="post">
         {% csrf_token %}
-        <input type="text" name="buscar" placeholder="Nombre del empleado">
-        <button type="submit">Buscar</button>
+        <div class="card mx-auto" style="max-width: 30rem;">
+            <div class="card-body">
+                <h5 class="card-title">Buscar empleado</h5>
+                <input type="text" name="buscar" placeholder="Nombre del empleado">
+                <button class="btn btn-sm btn-primary float-end" type="submit">Buscar empleado</button>
+
     </form>
+  
     {% if empleado %}
+    <br>
+    <br>
+
+
     <h2>Resultado:</h2>
     <p>Nombre: {{ empleado.nombre }}</p>
     <p>Apellido: {{ empleado.apellido }}</p>
-    <p>Trabajo: {{ empleado.trabajo }}</p>
+    <p>Trabajo: {{ empleado.get_trabajo_display }}</p>
     <p>Departamento: {{ empleado.departamento }}</p>
-    <p>Situacion: {{ empleado.Situacion }}</p>
-    <p>Habilidad: {{ empleado.Habilidad }}</p>
+    <p>Situación:
+        {% for situacion in empleado.Situacion.all %}
+          {{ situacion.estadocivil }}
+        {% endfor %}
+    </p>  <!-- {# Para relaciones ManyToMany #} -->
+
+    <p>Habilidades:
+        {% for habilidad in empleado.Habilidad.all %}
+          {{ habilidad.habilidad }},
+        {% endfor %}
+      </p>  <!--{# Para relaciones ManyToMany #}-->
+
     <p>Email: {{ empleado.email }}</p>
     <!-- Otros campos relevantes -->
     {% endif %}
+        </div>
+            </div>
 </body>
 </html>
 {% endblock %}
+

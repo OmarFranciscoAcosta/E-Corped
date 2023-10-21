@@ -34,3 +34,8 @@ def buscar_empleado(request):
         empleado = Empleado.objects.filter(nombre__icontains=buscar).first()
 
     return render(request, 'empleado/buscar_empleado.html', {'empleado': empleado})
+
+#Listar empleados y mostrarlo por una card.
+def lista_empleados(request):
+    empleados = Empleado.objects.all()
+    return render(request, 'empleado/lista_empleados.html', {'empleados': empleados})
