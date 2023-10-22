@@ -13,10 +13,11 @@ def publicar_empleado(request):
     empleado_form = EmpleadoForm()
     
     if request.method == 'POST':
-        empleado_form = EmpleadoForm(data=request.POST)
+        empleado_form = EmpleadoForm(request.POST, request.FILES)
         if empleado_form.is_valid():
             empleado_form.save()
-            return redirect('empleado/home.html')  # Redirige a la página de inicio
+            messages.success(request, 'El empleado ha sido agregado con éxito.')
+            return redirect('empleados')  # Redirige a la página de inicio
     else:
         empleado_form = EmpleadoForm()
     return render(request, 'empleado/publicar_empleado.html', {'form': empleado_form})
@@ -48,11 +49,11 @@ def detalles_empleado(request, empleado_id):
             if form.is_valid():
                 form.save()
                 # Redirecciona a la página de lista_empleados después de guardar cambios
-                return redirect('empleados')
+                return redirect('exito_empleado')
         elif 'eliminar' in request.POST:
             empleado.delete()
             messages.success(request, 'El empleado ha sido eliminado.')
-            return redirect('emplados')  # Redirige a donde desees después de la eliminación
+            return redirect('empleados')  # Redirige a donde desees después de la eliminación
     else:
         form = EmpleadoForm(instance=empleado)
     
@@ -61,3 +62,4 @@ def detalles_empleado(request, empleado_id):
 #Formulario de acerca de mí.
 def about (request):
     return render (request, 'empleado/about.html')
+

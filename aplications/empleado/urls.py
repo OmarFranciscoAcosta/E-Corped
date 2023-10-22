@@ -26,5 +26,6 @@ urlpatterns = [
     path('empleados/', lista_empleados, name='empleados'),
     path('detalles/<int:empleado_id>/', detalles_empleado, name='detalles'),
     path('about/',about, name='about'),
+    
 ]
 

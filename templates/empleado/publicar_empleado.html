@@ -1,26 +1,36 @@
 {% extends "empleado/base.html" %}
+
 {% block content %}
+
 {% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Agregar Empleado</title>
+    <style>
+        .horizontal-card {
+            display: flex;
+            justify-content: space-between;
+            max-width: 600px; /* Ajusta este valor según tus preferencias */
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
-    <form method="post">
+    <form id="mi-formulario" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       <div class="card mx-auto" style="max-width: 30rem;">
           <div class="card-body">
               <h5 class="card-title">Agregar un empleado</h5>
               {{ form | crispy }}
-              <button class="btn btn-sm btn-primary float-end" type="submit">Agregar empleado</button>
+              <button type="submit" name="editar" class="btn btn-primary" id="guardar-cambios-button">Guardar cambios</button>
           </div>
       </div>
   </form>
   </body>
 </html>
+ 
 {% endblock %}
-
-
