@@ -1,0 +1,47 @@
+{% extends "empleado/base.html" %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de Mí</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+
+<div class="card mx-auto mb-3" style="max-width: 1500px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="{% static 'images/aboutme.jpg' %}" class="img-fluid rounded-start" alt="Omar - Imagen de Perfil">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <br>
+                <br>
+                <br>
+                <br>
+                <h5 class="card-title">¡Hola, soy Omar!</h5>
+                <p class="card-text">
+                    Soy un apasionado del lenguaje de programación Python. Desde que descubrí este lenguaje, me enamoré de su simplicidad y versatilidad.
+                </p>
+                <p class="card-text">
+                    Principalmente, utilizo Python para desarrollar aplicaciones web y resolver problemas de manera creativa. Mi enfoque es crear soluciones eficientes y dinámicas que hagan la vida más fácil para los demás.
+                </p>
+                <p class="card-text">
+                    Además de ser un entusiasta de Python, también soy un eterno aprendiz. Siempre estoy adquiriendo nuevos conocimientos y mejorando mis habilidades para convertirme en un profesional en el desarrollo de software. Mi objetivo es impulsar el potencial de Python al máximo y compartir mis conocimientos con otros.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}
+
+
+

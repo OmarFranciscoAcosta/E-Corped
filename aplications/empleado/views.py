@@ -57,3 +57,7 @@ def detalles_empleado(request, empleado_id):
         form = EmpleadoForm(instance=empleado)
     
     return render(request, 'empleado/detalle_empleado.html', {'form': form, 'empleado': empleado})
+
+#Formulario de acerca de mí.
+def about (request):
+    return render (request, 'empleado/about.html')

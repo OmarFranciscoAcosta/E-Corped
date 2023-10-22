@@ -18,7 +18,6 @@
 
   <link rel="icon" type="image/x-icon" href={% static 'images/ecorped.png' %} />
 
-  <title>E-Corped</title>
 
   <!-- slider stylesheet -->
   <!-- slider stylesheet -->
@@ -58,6 +57,9 @@
                   <a class="nav-link" href={% url 'home' %}>Inicio <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" href={% url 'about' %}> Sobre mí </a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href={% url 'publicar_empleado' %}> Publicar empleado </a>
                 </li>
                 <li class="nav-item">
@@ -70,13 +72,13 @@
                   <a class="nav-link" href={% url 'logout' %}> Cerrar Sesion </a>
                 </li>
                 <div class="user_option">
-                  <a href={% url 'actualizar-usuario' %} >
+                  <a href=about >
                     <img src="{% static 'images/user.png' %}" alt="">
                   </a>
                 </div>
                 {% else %}
                 <li class="nav-item">
-                  <a class="nav-link" href="#"> Sobre mí </a>
+                  <a class="nav-link" href={% url 'about' %}> Sobre mí </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href={% url 'login' %}> Iniciar Sesion </a>
