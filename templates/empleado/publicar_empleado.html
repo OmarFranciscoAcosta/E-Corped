@@ -30,6 +30,50 @@
           </div>
       </div>
   </form>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    $(document).ready(function() {
+        $("#mi-formulario").submit(function(e) {
+            e.preventDefault();
+
+            var formData = new FormData(this);  // Crea un objeto FormData para incluir archivos
+            $.ajax({
+                type: "POST",
+                url: "{% url 'publicar_empleado' %}",
+                data: formData,
+                processData: false,  // Evita el procesamiento automático
+                contentType: false,  // Evita la configuración automática de Content-Type
+                success: function(response) {
+                    if (response.success) {
+                        Swal.fire({
+                            title: 'Éxito',
+                            text: response.message,
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        }).then(function () {
+                            window.location.href = "{% url 'empleados' %}";
+                        });
+                    } else {
+                        Swal.fire({
+                            title: 'Error',
+                            text: response.message,
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                },
+                error: function() {
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Hubo un problema al agregar el empleado.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            });
+        });
+    });
+</script>
   </body>
 </html>
  

@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render, get_object_or_404
 from .models import Empleado
 from .forms import EmpleadoForm
 from django.contrib import messages
+from django.http import JsonResponse
 # Create your views here.
 
 
@@ -10,14 +11,14 @@ def home (request):
     return render (request, 'empleado/home.html')
 #Publicar empleado
 def publicar_empleado(request):
-    empleado_form = EmpleadoForm()
-    
     if request.method == 'POST':
         empleado_form = EmpleadoForm(request.POST, request.FILES)
         if empleado_form.is_valid():
             empleado_form.save()
-            messages.success(request, 'El empleado ha sido agregado con éxito.')
-            return redirect('empleados')  # Redirige a la página de inicio
+            # Devuelve una respuesta JSON indicando éxito
+            return JsonResponse({'success': True, 'message': 'El empleado ha sido agregado con éxito.'})
+        else:
+            return JsonResponse({'success': False, 'message': 'Hubo un problema al agregar el empleado.'})
     else:
         empleado_form = EmpleadoForm()
     return render(request, 'empleado/publicar_empleado.html', {'form': empleado_form})
@@ -49,7 +50,7 @@ def detalles_empleado(request, empleado_id):
             if form.is_valid():
                 form.save()
                 # Redirecciona a la página de lista_empleados después de guardar cambios
-                return redirect('exito_empleado')
+                return redirect('empleados')
         elif 'eliminar' in request.POST:
             empleado.delete()
             messages.success(request, 'El empleado ha sido eliminado.')
