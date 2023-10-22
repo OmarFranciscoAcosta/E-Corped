@@ -15,4 +15,4 @@ class Departamento (models.Model):
         ordering = ['nombre']
         unique_together = ('nombre','sigla')
     def __str__(self):
-        return self.nombre + '-' + self.sigla + '-' + self.piso + '-' +self.oficina
+        return self.nombre +  + '-' + self.piso + '-' +self.oficina
