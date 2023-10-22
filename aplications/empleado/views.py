@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from .models import Empleado
-from .forms import EmpleadosForm
+from .forms import EmpleadoForm
 from django.contrib import messages
 # Create your views here.
 
@@ -44,16 +44,16 @@ def detalles_empleado(request, empleado_id):
     
     if request.method == 'POST':
         if 'editar' in request.POST:
-            form = EmpleadosForm(request.POST, instance=empleado)
+            form = EmpleadoForm(request.POST, request.FILES, instance=empleado)
             if form.is_valid():
                 form.save()
-                messages.success(request, 'Los datos del empleado han sido actualizados.')
+                # Redirecciona a la página de lista_empleados después de guardar cambios
                 return redirect('empleados')
         elif 'eliminar' in request.POST:
-            Empleado.delete()
+            empleado.delete()
             messages.success(request, 'El empleado ha sido eliminado.')
-            return redirect('empleados')  # Redirige a donde desees después de la eliminación
+            return redirect('emplados')  # Redirige a donde desees después de la eliminación
     else:
-        form = EmpleadosForm(instance=empleado)
+        form = EmpleadoForm(instance=empleado)
     
     return render(request, 'empleado/detalle_empleado.html', {'form': form, 'empleado': empleado})

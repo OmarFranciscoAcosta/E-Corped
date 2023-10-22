@@ -23,7 +23,12 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-img-container d-flex justify-content-center align-items-center"></div>
               <!-- Puedes personalizar la imagen, el título y el contenido según tus datos de empleado -->
-              <img src="{{ empleado.imagen_de_perfil.url}}" class="card-img-top card-img-small mx-auto" alt="Empleado Imagen">
+              {% if empleado.imagen_de_perfil %}
+              <img src="{{ empleado.imagen_de_perfil.url }}" class="card-img-top card-img-small mx-auto" alt="Empleado Imagen">
+              {% else %}
+              <!-- Aquí puedes colocar una imagen de marcador de posición o algún otro contenido predeterminado -->
+              <img src="{% static 'images/imagen_vacia.png' %}" class="card-img-top card-img-small mx-auto" alt="Imagen Vacía">
+              {% endif %}
               <div class="card-body">
                 <h5 class="card-title">{{ empleado.nombre }} {{ empleado.apellido }}</h5>
                 <p class="card-text">
