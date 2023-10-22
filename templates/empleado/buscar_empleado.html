@@ -11,7 +11,7 @@
     <br>
     <br>
     <br>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="card mx-auto" style="max-width: 30rem;">
             <div class="card-body">
@@ -46,6 +46,10 @@
     <p>Email: {{ empleado.email }}</p>
     <!-- Otros campos relevantes -->
     {% endif %}
+    {% if empleado.imagen_de_perfil %}
+    <p>Foto de perfil:</p>
+    <img src="{{ empleado.imagen_de_perfil.url }}" alt="Imagen de perfil">
+{% endif %}
         </div>
             </div>
 </body>

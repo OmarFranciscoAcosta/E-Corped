@@ -10,15 +10,15 @@ def home (request):
     return render (request, 'empleado/home.html')
 #Publicar empleado
 def publicar_empleado(request):
-    empleado_form = EmpleadosForm()
+    empleado_form = EmpleadoForm()
     
     if request.method == 'POST':
-        empleado_form = EmpleadosForm(data=request.POST)
+        empleado_form = EmpleadoForm(data=request.POST)
         if empleado_form.is_valid():
             empleado_form.save()
             return redirect('empleado/home.html')  # Redirige a la página de inicio
     else:
-        empleado_form = EmpleadosForm()
+        empleado_form = EmpleadoForm()
     return render(request, 'empleado/publicar_empleado.html', {'form': empleado_form})
 
 #Buscar empleado

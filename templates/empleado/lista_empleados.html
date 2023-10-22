@@ -36,7 +36,9 @@
                   Departamento: {{ empleado.departamento }}<br>
                   <!-- Agrega más campos relevantes aquí -->
                 </p>
+                {% if user.is_superuser %}
                 <a href={% url 'detalles' empleado.id %} class="btn btn-primary">Detalles</a>
+                {% endif %}
               </div>
             </div>
           </div>

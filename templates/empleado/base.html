@@ -69,6 +69,11 @@
                 <li class="nav-item">
                   <a class="nav-link" href={% url 'logout' %}> Cerrar Sesion </a>
                 </li>
+                <div class="user_option">
+                  <a href={% url 'actualizar-usuario' %} >
+                    <img src="{% static 'images/user.png' %}" alt="">
+                  </a>
+                </div>
                 {% else %}
                 <li class="nav-item">
                   <a class="nav-link" href="#"> Sobre mí </a>
@@ -79,6 +84,7 @@
                 <li class="nav-item">
                   <a class="nav-link" href={% url 'register' %}> Registrarse </a>
                 </li>
+                
                 {% endif %}
               </ul>
             </div>

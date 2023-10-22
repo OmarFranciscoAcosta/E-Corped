@@ -1,0 +1,24 @@
+{% extends "empleado/base.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar datos del usuario logueado</title>
+</head>
+<body>
+    <form method="post">
+      {% csrf_token %}
+      <div class="card mx-auto" style="max-width: 30rem;">
+          <div class="card-body">
+              <h5 class="card-title">Modificar datos del usuario</h5>
+              {{ form | crispy }}
+              <button class="btn btn-sm btn-primary float-end" type="submit">Guardar cambios</button>
+          </div>
+      </div>
+  </form>
+  </body>
+</html>
+{% endblock %}
