@@ -26,6 +26,15 @@ INSTALLED_APPS = [
     'aplications.loginregister',
 ]
 
+JAZZMIN_SETTINGS = {
+    # Configuración del logo
+    "site_title": "E-Corped",
+    "site_logo": "images/ecorped.ico",
+    "site_icon": "images/ecorped.png",  # Ruta al archivo de imagen del icono
+    "welcome_sign": "Bienvenido al panel de Administración de la empresa!",
+    "copyright": "Omar Acosta",
+}
+
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 

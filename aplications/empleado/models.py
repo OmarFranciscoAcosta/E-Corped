@@ -44,6 +44,7 @@ class Empleado (models.Model):
     Situacion = models.ManyToManyField(EstCiv)
     Habilidad = models.ManyToManyField(Habilidades)
     email = models.EmailField('Mail',blank = True)
+    imagen_de_perfil = models.ImageField('Foto de perfil', upload_to='static/images',blank=True, null=True)
     class Meta:
         verbose_name = 'Mi empleado'
         verbose_name_plural = 'Empleados de la empresa'
@@ -52,9 +53,3 @@ class Empleado (models.Model):
     def __str__(self):
         return self.nombre + '-' + self.apellido
         
- ##MODELOS DE PRUEBA QUE NO SE USAN       
-class Prueba (models.Model):
-    titulo = models.CharField('titulo', max_length=50)
-    
-class Prueba2 (models.Model):
-    titulo2 = models.CharField('titulo 2', max_length=50)

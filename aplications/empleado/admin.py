@@ -2,19 +2,21 @@ from atexit import register
 from django.contrib import admin
 from tkinter import *
 
-from .models import Empleado, EstCiv, Habilidades, Prueba, Prueba2
+from .models import Empleado, EstCiv, Habilidades
 
 # Register your models here.
 
 
 class EmpleadoAdmin (admin.ModelAdmin):
     list_display = (
-         'nombre',
-         'apellido',
+        'id',
+        'nombre',
+        'apellido',
         'trabajo',
-          'departamento',
-          'email',
-          )
+        'departamento',
+        'email',
+        'imagen_de_perfil',
+      )
     search_fields = ('nombre','apellido')
     list_filter = ('nombre','apellido','trabajo')
 admin.site.register(Empleado,EmpleadoAdmin)

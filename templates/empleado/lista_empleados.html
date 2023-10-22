@@ -23,7 +23,7 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-img-container d-flex justify-content-center align-items-center"></div>
               <!-- Puedes personalizar la imagen, el título y el contenido según tus datos de empleado -->
-              <img src={% static 'images/empleadophoto.png' %} class="card-img-top card-img-small mx-auto" alt="Empleado Imagen">
+              <img src="{{ empleado.imagen_de_perfil.url}}" class="card-img-top card-img-small mx-auto" alt="Empleado Imagen">
               <div class="card-body">
                 <h5 class="card-title">{{ empleado.nombre }} {{ empleado.apellido }}</h5>
                 <p class="card-text">
@@ -31,7 +31,7 @@
                   Departamento: {{ empleado.departamento }}<br>
                   <!-- Agrega más campos relevantes aquí -->
                 </p>
-                <a href="#" class="btn btn-primary">Detalles</a>
+                <a href={% url 'detalles' empleado.id %} class="btn btn-primary">Detalles</a>
               </div>
             </div>
           </div>
