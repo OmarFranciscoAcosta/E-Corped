@@ -35,4 +35,4 @@ class EstCivAdmin (admin.ModelAdmin):
     )
     search_fields = ('estadocivil',)
     list_filter = ('estadocivil',)
-admin.site.register(EstCiv,EstCivAdmin)
+admin.site.register(EstCiv)
