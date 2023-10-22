@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
-from .forms import CustomUserCreationForm, CustomUserChangeForm
+from .forms import CustomUserCreationForm, CustomUserChangeForm, CustomPasswordChangeForm
 from django.contrib.auth import logout
 from django.contrib.auth import authenticate, login, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import PasswordChangeView, PasswordChangeDoneView
 
 # Create your views here.
 
@@ -20,11 +21,11 @@ def actualizar_usuario(request):
         form = CustomUserChangeForm(instance=user)
     return render(request, 'registration/actualizar_usuario.html', {'form': form})
 
-
 #LOGOUT
 def exit (request):
     logout(request)
     return redirect ('home')
+
 #REGISTRO
 def register(request):
     data = {
@@ -43,3 +44,23 @@ def register(request):
             return redirect('home')
     
     return render (request, 'registration/register.html',data)
+
+#Cambio de contraseña
+class CustomPasswordChangeView(PasswordChangeView):
+    form_class = CustomPasswordChangeForm
+    template_name = 'registration/cambiar-contrasena.html'
+    
+    
+#Cambio de contraseña exitoso
+class ContraExitosaPersonalizada(PasswordChangeDoneView):
+    template_name = 'registration/cambio-contrasena-exitoso.html'
+
+    def get(self, request):
+        # Esta es una vista personalizada para mostrar un mensaje después de cambiar la contraseña
+        return super().get(request)
+
+
+# def cambio_contrasena_exitoso(request):
+#     # Realiza el cierre de sesión
+#     logout(request)
+#     return render(request, 'cambio_contrasena_exitoso.html')

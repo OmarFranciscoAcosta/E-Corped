@@ -1,0 +1,21 @@
+{% extends "empleado/base.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio de Contraseña Exitoso</title>
+</head>
+<body>
+    <div class="card mx-auto" style="width: 30rem;">
+        <div class="card-body">
+            <h1>¡Cambio de contraseña exitoso!</h1>
+            <p>Tu contraseña se ha actualizado con éxito.</p>
+            <a href="{% url 'home' %}" class="btn btn-primary">Ir al inicio</a>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

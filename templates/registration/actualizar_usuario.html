@@ -9,7 +9,7 @@
     <title>Modificar datos del usuario logueado</title>
 </head>
 <body>
-    <form method="post">
+    <form id="mi-formulario" method="post">
       {% csrf_token %}
       <div class="card mx-auto" style="max-width: 30rem;">
           <div class="card-body">
@@ -19,6 +19,42 @@
           </div>
       </div>
   </form>
+  <script>
+    $(document).ready(function() {
+        $("#mi-formulario").submit(function(e) {
+            e.preventDefault();
+
+            var form = $(this);
+            var url = form.attr("action"); // Obtiene la URL de acción del formulario
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: form.serialize(),
+                success: function(response) {
+                    Swal.fire({
+                        title: 'Éxito',
+                        text: 'Cambios guardados con éxito.',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    }).then(function () {
+                        window.location.href = "{% url 'home' %}";
+                    });
+                },
+                error: function() {
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'No se pudieron guardar los cambios.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+
   </body>
 </html>
 {% endblock %}

@@ -4,9 +4,13 @@
 <head>
 
     {% load static %}
+    <script src={% static 'css/bootstrap.css' %}></script>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/sweetalert2.css' %}">
     <script src="{% static 'js/sweetalert2.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- Basic -->
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -54,9 +58,6 @@
             <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav">
                 {% if request.user.is_authenticated %}
-                <li class="nav-item active">
-                  <a class="nav-link" href={% url 'home' %}>Inicio <span class="sr-only">(current)</span></a>
-                </li>
                 <li class="nav-item">
                   <a class="nav-link" href={% url 'about' %}> Sobre mí </a>
                 </li>
@@ -70,10 +71,13 @@
                   <a class="nav-link" href={% url 'empleados' %}> Listado de empleados </a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" href={% url 'cambiar-contrasena' %}> Cambiar contraseña </a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href={% url 'logout' %}> Cerrar Sesion </a>
                 </li>
                 <div class="user_option">
-                  <a href={% url 'actualizar-usuario' %} >
+                  <a href={% url 'actualizar-usuario' %}>
                     <img src="{% static 'images/user.png' %}" alt="">
                   </a>
                 </div>
