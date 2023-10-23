@@ -19,7 +19,7 @@ Se crearon en este proyecto 3 aplicaciones:
 - Loginregister: donde se gestiona todo lo relacionado al ingreso - registro de usuarios al sistema.
 
 
-Link hacia el video de presentación:
+Link hacia el video de presentación: https://shorturl.at/opxI4
 
 
 Redes
