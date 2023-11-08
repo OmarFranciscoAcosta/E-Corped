@@ -3,13 +3,16 @@ from .models import Empleado
 from .forms import EmpleadoForm
 from django.contrib import messages
 from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
 #Render pagina inicio
 def home (request):
     return render (request, 'empleado/home.html')
+
 #Publicar empleado
+@login_required
 def publicar_empleado(request):
     if request.method == 'POST':
         empleado_form = EmpleadoForm(request.POST, request.FILES)
@@ -24,6 +27,7 @@ def publicar_empleado(request):
     return render(request, 'empleado/publicar_empleado.html', {'form': empleado_form})
 
 #Buscar empleado
+@login_required
 def buscar_empleado(request):
     empleado = None
     if request.method == 'POST':
@@ -36,11 +40,13 @@ def buscar_empleado(request):
     return render(request, 'empleado/buscar_empleado.html', {'empleado': empleado})
 
 #Listar empleados y mostrarlo por una card.
+@login_required
 def lista_empleados(request):
     empleados = Empleado.objects.all()
     return render(request, 'empleado/lista_empleados.html', {'empleados': empleados})
 
 #Formulario de empleados para modificar los datos, cargar una foto nueva y mostrarla por lista_empleados.
+@login_required
 def detalles_empleado(request, empleado_id):
     empleado = get_object_or_404(Empleado, id=empleado_id)
     
